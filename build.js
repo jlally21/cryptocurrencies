@@ -16,6 +16,14 @@ fetch(endpoint)
 
 		const symbols = {};
 
+		/**
+		 * Build the JSON file based on the cryptocompare coinlist.
+		 */
+		sorted.forEach((currency, index) => {
+			const { Name, CoinName } = currency;
+			symbols[Name] = CoinName.trim();
+		});
+
 		spinner.color = "yellow";
 		spinner.start(`Saving cryptocurrencies.json file`);
 
